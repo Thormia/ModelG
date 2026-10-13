@@ -1,0 +1,14 @@
+# Bản gốc trước khi lọc và bản nén trùng với data/
+backup_data_goc/
+data.zip
+
+# Phiếu duyệt có tên chuyên gia; chỉ công khai danh sách 40 mẫu (expert/task3_expert_verify_40.jsonl)
+expert/*.xlsx
+
+# Tài liệu nội bộ
+idea.docx
+
+.claude/
+__pycache__/
+.ipynb_checkpoints/
+*.zip
