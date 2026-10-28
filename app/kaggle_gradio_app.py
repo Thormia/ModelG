@@ -14,7 +14,7 @@
 #
 # **Cài đặt Kaggle**: Accelerator **GPU T4 x2**, Internet **On**, chạy kiểu **interactive** (không Save Version),
 # vì Gradio cần notebook còn chạy để giữ link.
-# **Input**: (1) output của notebook huấn luyện (chứa `qwen25-7b-lora/epoch-*`);
+# **Input**: (1) output của notebook huấn luyện (chứa `qwen25-7b-lora-6ep/epoch-*`);
 # (2) dataset có `task2_dinh_duong_422_mon.json` (để LLM3 đối chiếu lời khuyên; thiếu file này app vẫn chạy).
 
 # %%
@@ -40,8 +40,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 
 MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
-# Thư mục adapter: đổi thành epoch tốt nhất của lần huấn luyện bạn muốn dùng
-ADAPTER_PATTERN = "qwen25-7b-lora/epoch-2/adapter_config.json"
+# Adapter của mô hình đề xuất (Epoch 3, lần huấn luyện 6 epoch); đổi số epoch nếu muốn thử checkpoint khác
+ADAPTER_PATTERN = "qwen25-7b-lora-6ep/epoch-3/adapter_config.json"
 
 def find(pattern, required=True):
     hits = sorted(glob.glob(f"/kaggle/input/**/{pattern}", recursive=True))
